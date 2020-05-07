@@ -1,6 +1,6 @@
 # TypeScript
 
-<img src="./misc/ts_logo.jpg" alt="TypeScript" width="24px" height="24px" style="vertical-align: bottom;">  [TypeScript 3.8 (February 20th, 2020)](https://devblogs.microsoft.com/typescript/announcing-typescript-3-8/)
+<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" alt="TypeScript" width="24px" height="24px" style="vertical-align: bottom;">  [TypeScript 3.8 (February 20th, 2020)](https://devblogs.microsoft.com/typescript/announcing-typescript-3-8/)
 <!-- | -->
 <!-- [版本发布说明](./release-notes/TypeScript%203.8.md) -->
 
