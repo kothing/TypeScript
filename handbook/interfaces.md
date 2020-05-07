@@ -1,12 +1,26 @@
 # 接口
 
 ## 介绍
+接口是实例应遵循的语法规则，换句话说，接口定义了任何实例必须遵守的语法.
+
+接口定义属性、方法和事件，它们是接口的成员，接口仅包含成员的声明.派生类负责定义成员.它通常有助于提供派生类所遵循的标准结构.
 
 TypeScript 的核心原则之一是对值所具有的_结构_进行类型检查。 它有时被称做“Duck Typing”或“structural subtyping”。 在 TypeScript 里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。
 
+## 接口声明
+
+使用`interface`关键字声明接口，语法 :
+```typescript
+interface interface_name { 
+  //属性成员
+  //方法成员
+  //事件成员
+}
+```
+
 ## 接口初探
 
-下面通过一个简单示例来观察接口是如何工作的：
+先看一个简单示例：
 
 ```typescript
 function printLabel(labeledObj: { label: string }) {
