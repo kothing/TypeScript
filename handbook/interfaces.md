@@ -7,7 +7,7 @@ TypeScript 的核心原则之一是对值所具有的_结构_进行类型检查�
 
 ## 接口声明
 
-使用`interface`关键字声明接口，语法 :
+使用关键字`interface`声明接口，语法 :
 ```typescript
 interface interface_name { 
   //属性成员
