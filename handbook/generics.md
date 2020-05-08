@@ -70,6 +70,33 @@ let student = <T>(value: T): T => {
 //Expression expected.
 ```
 
+Intellisense gets very upset and complains, because it is trying to make the into a React JSX element. But my intention is to have the compiler treat it as a generic type designator.
+
+Intellisense非常沮丧和抱怨，因为它试图将变成React JSX元素。 但我的目的是让编译器将其视为通用类型指示符。
+
+那我们如果依然想使用箭头函数改如何处理呢？
+
+When you have a single type parameter, TypeScript isn’t sure whether it might be a JSX opening tag or not. It has to choose one, so it goes with JSX.
+
+当您有一个类型参数时，TypeScript不确定它是否可能是JSX开始标记。 它必须选择一个，所以它与JSX一起使用。
+
+If you want a function with the exact same semantics, you can explicitly list the constraint of T:
+
+如果你想要一个具有完全相同语义的函数，你可以明确列出T的约束：
+
+```
+let student = <T extends {}>(value: T): T => {
+    return value;
+}
+let name: string = student('Jack');
+let age: number = student(18);
+console.log(name, age);//Jack 18
+```
+This breaks the ambiguity for TypeScript so that you can use a generic type parameter. It also has the same semantics because type parameters always have an implicit constraint of {}.
+
+这打破了TypeScript的歧义，以便您可以使用泛型类型参数。 它也具有相同的语义，因为类型参数始终具有{}的隐式约束。
+
+
 ## 使用泛型变量
 
 使用泛型创建像`identity`这样的泛型函数时，编译器要求你在函数体必须正确的使用这个通用的类型。 换句话说，你必须把这些参数当做是任意或所有类型。
