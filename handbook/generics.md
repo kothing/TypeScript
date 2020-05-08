@@ -29,6 +29,7 @@ function identity(arg: any): any {
 
 因此，我们需要一种方法使返回值的类型与传入参数的类型是相同的。 这里，我们使用了_类型变量_，它是一种特殊的变量，只用于表示类型而不是值。
 
+**普通函数**
 ```typescript
 function identity<T>(arg: T): T {
     return arg;
@@ -55,6 +56,19 @@ let output = identity("myString");  // type of output will be 'string'
 ```
 
 注意我们没必要使用尖括号（`<>`）来明确地传入类型；编译器可以查看`myString`的值，然后把`T`设置为它的类型。 类型推论帮助我们保持代码精简和高可读性。如果编译器不能够自动地推断出类型的话，只能像上面那样明确的传入T的类型，在一些复杂的情况下，这是可能出现的。
+
+> 你可以随意调用泛型参数，当你使用简单的泛型时，泛型常用 T、U、V 表示。如果在你的参数里，不止拥有一个泛型，你应该使用一个更语义化名称，如 TKey 和 TValue （通常情况下，以 T 作为泛型的前缀，在其他语言如 C++ 里，也被称为模板）
+
+
+**箭头函数**
+```
+这样写的话tsx会直接编译报错
+let student = <T>(value: T): T => {
+    return value;
+}
+//JSX element 'T' has no corresponding closing tag.ts(17008)
+//Expression expected.
+```
 
 ## 使用泛型变量
 
