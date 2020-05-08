@@ -39,7 +39,8 @@ function identity<T>(arg: T): T {
 
 我们把这个版本的`identity`函数叫做泛型，因为它可以适用于多个类型。 不同于使用`any`，它不会丢失信息，像第一个例子那像保持准确性，传入数值类型并返回数值类型。
 
-我们定义了泛型函数后，可以用两种方法使用。 
+我们定义了泛型函数后，可以用两种方法使用。
+
 第一种是，在方法调用时指定T代表的类型：
 ```typescript
 let output = identity<string>("myString");  // type of output will be 'string'
