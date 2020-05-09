@@ -11,7 +11,7 @@
 
 ## 目录
 
-* [数据类型](/data-types.md)
+* [数据类型](/tutorials/data-types.md)
 * 接口
 * 类
 * 泛型
