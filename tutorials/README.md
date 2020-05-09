@@ -13,7 +13,7 @@
 
 * [数据类型](/tutorials/data-types.md)
 * [接口](/tutorials/interface.md)
-* [类](/tutorials/)
+* [类](/tutorials/class.md)
 * [泛型](/tutorials/)
 * [类型兼容性](/tutorials/)
 * [高级类型](/tutorials/)
