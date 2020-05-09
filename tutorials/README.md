@@ -12,10 +12,10 @@
 ## 目录
 
 * [数据类型](/tutorials/data-types.md)
-* 接口
-* 类
-* 泛型
-* 类型兼容性
-* 高级类型
-* 命名空间
-* 装饰器
+* [接口](/tutorials/interface.md)
+* [类](/tutorials/)
+* [泛型](/tutorials/)
+* [类型兼容性](/tutorials/)
+* [高级类型](/tutorials/)
+* [命名空间](/tutorials/)
+* [装饰器](/tutorials/)
