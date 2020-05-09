@@ -18,4 +18,4 @@
 * [类型兼容性](/tutorials/type-compatibility.md)
 * [高级类型](/tutorials/advanced-type.md)
 * [命名空间](/tutorials/name-spaces.md)
-* [装饰器](/tutorials/)
+* [装饰器](/tutorials/decorators.md)
