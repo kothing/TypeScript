@@ -16,6 +16,6 @@
 * [类](/tutorials/class.md)
 * [泛型](/tutorials/generics.md)
 * [类型兼容性](/tutorials/type-compatibility.md)
-* [高级类型](/tutorials/)
+* [高级类型](/tutorials/advanced-type.md)
 * [命名空间](/tutorials/)
 * [装饰器](/tutorials/)
