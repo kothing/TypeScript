@@ -258,7 +258,7 @@ interface PersonReadonly {
   readonly age: number;
 }
 ```
-而如果采用映射类型，那么就能快速的改变接口成员，如下代码所示，其中Readonly<T>可将T类型的成员设为只读，而Partial<T>会将它们设为可选。
+而如果采用映射类型，那么就能快速的改变接口成员，如下代码所示，其中`Readonly<T>`可将T类型的成员设为只读，而`Partial<T>`会将它们设为可选。
 ```typescript
 type Readonly<T> = {
   readonly [P in keyof T]: T[P];
@@ -322,7 +322,7 @@ function func<U>(x: U) {
 //等同于
 (A extends U ? X : Y) | (B extends U ? X : Y) | (C extends U ? X : Y)
 ```
-分布式条件类型可以用来过滤联合类型，如下所示，Filter<T, U>类型可从T中移除U的子类型。
+分布式条件类型可以用来过滤联合类型，如下所示，`Filter<T, U>`类型可从T中移除U的子类型。
 ```typescript
 type Filter<T, U> = T extends U ? never : T;
 type T1 = Filter<"a" | "b" | "c" | "d", "a" | "c" | "f">;        // "b" | "d"
@@ -345,7 +345,7 @@ type Custom<T> = T extends any[] ? Custom<T[number]> : T;
 ```typescript
 type Func<T> = T extends (...args: any[]) => infer R ? R : any;
 ```
-当函数具有重载时，就取最后一个函数签名进行推断，如下所示，其中ReturnType<T>是内置的条件类型，可获取函数类型T的返回值类型。
+当函数具有重载时，就取最后一个函数签名进行推断，如下所示，其中`ReturnType<T>`是内置的条件类型，可获取函数类型T的返回值类型。
 ```typescript
 declare function load(x: string): number;
 declare function load(x: number): string;
@@ -363,11 +363,11 @@ type Func<T extends AnyFunction> = T extends (...args: any[]) => infer R ? R : a
 ```
 
 **预定义的条件类型**
-除了之前示例中用到的ReturnType<T>之外，TypeScript还预定义了4个其它功能的条件类型，如下所列。
-1. Exclude<T, U>：从T中移除掉U的子类型。
-2. Extract<T, U>：从T中筛选出U的子类型。
-3. NonNullable<T>：从T中移除null与undefined。
-4. InstanceType<T>：获取构造函数的实例类型。
+除了之前示例中用到的`ReturnType<T>`之外，TypeScript还预定义了4个其它功能的条件类型，如下所列。
+1. `Exclude<T, U>`：从T中移除掉U的子类型。
+2. `Extract<T, U>`：从T中筛选出U的子类型。
+3. `NonNullable<T>`：从T中移除null与undefined。
+4. `InstanceType<T>`：获取构造函数的实例类型。
 ```typescript
 type T11 = Exclude<"a" | "b" | "c" | "d", "a" | "c">;    // "b" | "d"
 type T12 = Extract<"a" | "b" | "c" | "d", "a" | "c">;    // "a" | "c"
