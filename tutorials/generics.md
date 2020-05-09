@@ -25,6 +25,13 @@ send<number>([1, 2, 3]);
 ```typescript
 let func: <U>(data: U) => U = send;
 ```
+我们还可以使用带有调用签名的对象字面量来定义泛型函数：
+```typescript
+function fn<T>(arg: T): T {
+  return arg;
+}
+let myFn: {<T>(arg: T): T} = fn;
+```
 泛型参数还支持传递多个，只需在声明时增加类型占位符即可。在下面的示例中，将T和U合并成了一个元组类型，还有许多其它用法，将在后面讲解。
 ```typescript
 function send<T, U>(data: [T, U]): [T, U] {
