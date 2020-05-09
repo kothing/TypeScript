@@ -22,7 +22,7 @@ let obj: object = {};
 
 ## 二、TypeScript扩展的类型
 
-1）任意值
+**任意值**
 
 　　当变量声明为任意值（any类型）时，它在编译阶段会跨过类型检查，并且能被赋为任意类型的值，还允许访问任意属性、调用任意方法。在下面的示例中，虽然能编译通过，但是在使用时却会抛出错误，因为字符串类型的变量没有toFixed()方法。
 ```typescript
@@ -32,7 +32,7 @@ data.toFixed();    //错误
 ```
 　　注意，没有显式声明类型的变量，默认都是any类型的。
 
-2）空值
+**空值**
 
 　　在JavaScript中，没有空值（void类型）的概念。TypeScript中的void不表示任意类型，与any类型相悖。当一个函数没有返回值时，通常会将其返回值的类型声明成void，如下所示。
 ```typescript
@@ -44,7 +44,7 @@ let u: void = undefined;
 let n: void = null;
 ```
 
-3）Never
+**Never**
 
 　　never类型表示那些永不存在的值的类型，例如包含死循环不会有返回值的函数或抛出错误的函数，如下所示。
 ```typescript
@@ -64,7 +64,7 @@ let digit: number = none;        //正确
 let figure: never = 10;          //错误
 ```
 
-4）数组
+**数组**
 
 　　在TypeScript中，有两种常见的数组声明方式。第一种通过类型和方括号组合来表示数组，第二种是使用数组泛型，如下所示。
 ```typescript
@@ -79,7 +79,7 @@ arr1.push("4");
 let arr3: any[] = [1, "2", true];
 ```
 
-5）元组
+**元组**
 
 　　在TypeScript中，元组（Tuple）会合并不同类型的值，例如定义一对string和number两种类型的元组，如下所示。
 ```typescript
@@ -103,9 +103,10 @@ list.push(true);          //错误
 　　在编译第二条语句时，会报“Argument of type 'true' is not assignable to parameter of type 'string | number'.”的错误。
 
 ## 三、枚举
+
 　　枚举是一个被命名的常量集合，该类型也是对JavaScript标准数据类型的一个补充。和C#、Java等其它语言一样，使用枚举可以更清晰的表达代码意图。TypeScript支持数字的和字符串两种类型的枚举。
 
-1）数字枚举
+**数字枚举**
 
 　　默认情况下，定义的都是数字枚举，如下所示，其中枚举成员的值从0开始自增长，例如Up的值为0，Down的值为1，其余依次递增。
 
@@ -136,7 +137,7 @@ enum Direction { Up = 1, Down, Left, Right }
 enum Direction { Up = 1, Down = 3, Left = 5, Right = 7 }
 ```
 
-2）字符串枚举
+**字符串枚举**
 
 　　在字符串枚举中，每个成员的值都得是字符串类型的，如下所示。
 ```typescript
@@ -149,14 +150,14 @@ if (colorName === Color.Red) {
 }
 ```
 
-3）异构枚举
+**异构枚举**
 
 　　枚举还可以混合字符串和数字两种成员，如下所示。
 ```typescript
 enum Mix { Up = 1, Red = "RED" }
 ```
 
-4）枚举成员
+**枚举成员**
 
 　　每个枚举成员都会包含一个值，而根据值的来源可将成员分成常量成员（Constant Member）和计算成员（Computed Member）。
 
@@ -184,7 +185,7 @@ enum Computed {
 }
 ```
 
-5）常量枚举
+**常量枚举**
 
 　　在声明枚举时添加const关键字就能生成常量枚举，如下所示。
 ```typescript
@@ -197,7 +198,7 @@ let colors = [Colors.Red, Colors.Green, Colors.Blue];
 var colors = [0 /* Red */, 1 /* Green */, 2 /* Blue */];
 ```
 
-6）外部枚举
+**外部枚举**
 
 　　在声明枚举时添加declare关键字就能生成外部枚举，即全局枚举，如下所示。
 ```typescript
@@ -235,7 +236,7 @@ data.length;        //错误
 ## 六、函数
 　　TypeScript中的函数不仅包含ES6的默认参数、剩余参数等功能，还新增了许多额外的功能，例如类型声明、重载等。
 
-1）函数创建
+**函数创建**
 
 　　在创建函数时可以为其参数和返回值添加类型，从而起到约束的作用。在下面的示例中，通过两种方式创建函数，第一种是函数声明，第二种是函数表达式。
 ```typescript
@@ -266,7 +267,7 @@ let minus: (left: number, right: number) => number =
     function(x: number, y: number): number { return x - y; };        //正确
 ```
 
-2）可选参数
+**可选参数**
 
 　　在JavaScript中，函数的参数都是可选的，而在TypeScript中的参数默认都是必传的。如果要让参数可选，那么需要在其后面跟一个问号（?），如下所示。
 ```typescript
@@ -281,7 +282,7 @@ function sum(x?: number, y: number): number {
 }
 ```
 
-3）重载
+**重载**
 
 　　JavaScript里的函数可根据不同数量和类型的参数返回不同类型的值，这样虽然很便捷，但是无法精确的传达出函数的输入和输出之间的对应关系。TypeScript提供了重载功能，可有效改善JavaScript函数定义不明确的问题。以重载定义多个caculate()函数为例，如下所示。
 ```typescript
@@ -301,7 +302,7 @@ caculate(false, true);        //错误
 caculate("1", 2);             //错误
 ```
 
-4）this参数
+**this参数**
 
 　　TypeScript能在定义函数时，显式地声明一个this参数，指定this的类型（即限制其指向），从而避免错误的使用this。例如为this定义为void类型，那么在函数中一旦使用this，就无法编译成功，如下所示。
 ```typescript
